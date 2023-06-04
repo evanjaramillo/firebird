@@ -1,17 +1,27 @@
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
+import {viteStaticCopy} from "vite-plugin-static-copy";
 import sveltePreprocess from "svelte-preprocess";
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
   plugins: [
+    // Copy assets required for cesium
+    viteStaticCopy({
+      targets: [
+        {src: 'node_modules/cesium/Build/Cesium/Assets', dest: './cesium/'},
+        {src: 'node_modules/cesium/Build/Cesium/ThirdParty', dest: './cesium/'},
+        {src: 'node_modules/cesium/Build/Cesium/Widgets', dest: './cesium/'},
+        {src: 'node_modules/cesium/Build/Cesium/Workers', dest: './cesium/'}
+      ]
+    }),
     svelte({
       preprocess: [
         sveltePreprocess({
           typescript: true,
         }),
       ],
-    }),
+    })
   ],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`

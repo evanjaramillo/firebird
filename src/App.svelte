@@ -1,39 +1,47 @@
 <script lang="ts">
-  import Greet from './lib/Greet.svelte'
+    import {onMount} from "svelte";
+    import {Viewer} from "cesium";
+    import '../node_modules/cesium/Build/Cesium/Widgets/widgets.css'
+
+    (window as any).CESIUM_BASE_URL = "./cesium/"; // Point cesium to its assets
+
+    let viewer: Viewer;
+
+    onMount(async () => {
+        viewer = new Viewer('cesiumContainer', {
+            animation: false,
+            baseLayerPicker: false,
+            fullscreenButton: false,
+            vrButton: false,
+            geocoder: false,
+            homeButton: false,
+            sceneModePicker: false,
+            timeline: false,
+            navigationHelpButton: false,
+            navigationInstructionsInitiallyVisible: false,
+            scene3DOnly: true,
+            shouldAnimate: true,
+            creditContainer: 'cesiumCreditContainer'
+        });
+    });
+
 </script>
 
-<main class="container">
-  <h1>Welcome to Tauri!</h1>
-
-  <div class="row">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo vite" alt="Vite Logo" />
-    </a>
-    <a href="https://tauri.app" target="_blank">
-      <img src="/tauri.svg" class="logo tauri" alt="Tauri Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank">
-      <img src="/svelte.svg" class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-
-  <p>
-    Click on the Tauri, Vite, and Svelte logos to learn more.
-  </p>
-
-  <div class="row">
-    <Greet />
-  </div>
-
-
-</main>
+<div id="cesiumContainer">
+</div>
+<div id="cesiumCreditContainer">
+</div>
 
 <style>
-  .logo.vite:hover {
-    filter: drop-shadow(0 0 2em #747bff);
+  #cesiumContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
   }
 
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00);
+  #cesiumCreditContainer {
+      visibility: hidden;
   }
 </style>
