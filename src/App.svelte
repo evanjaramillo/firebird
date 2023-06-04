@@ -1,14 +1,13 @@
 <script lang="ts">
-    import {onMount} from "svelte";
-    import {Viewer} from "cesium";
-    import '../node_modules/cesium/Build/Cesium/Widgets/widgets.css'
-
-    (window as any).CESIUM_BASE_URL = "./cesium/"; // Point cesium to its assets
+    import { onMount } from "svelte";
+    import { Viewer } from "cesium";
+    import '../node_modules/cesium/Build/Cesium/Widgets/widgets.css';
 
     let viewer: Viewer;
 
-    onMount(async () => {
-        viewer = new Viewer('cesiumContainer', {
+    onMount( async () => {
+
+        viewer = new Viewer( 'cesiumContainer', {
             animation: false,
             baseLayerPicker: false,
             fullscreenButton: false,
@@ -22,8 +21,9 @@
             scene3DOnly: true,
             shouldAnimate: true,
             creditContainer: 'cesiumCreditContainer'
-        });
-    });
+        } );
+
+    } );
 
 </script>
 
