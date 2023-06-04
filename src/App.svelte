@@ -3,6 +3,9 @@
     import { Viewer } from "cesium";
     import '../node_modules/cesium/Build/Cesium/Widgets/widgets.css';
 
+    // make sure to define the cesium assets location:
+    ( window as Window ).CESIUM_BASE_URL = "./cesium";
+
     let viewer: Viewer;
 
     onMount( async () => {
