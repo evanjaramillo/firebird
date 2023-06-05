@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
-    "types": ["cesium"],
+    "types": ["cesium", "src/vite-env.d.ts"],
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
