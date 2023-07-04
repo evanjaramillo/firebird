@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { Viewer } from "cesium";
+    import { CesiumTerrainProvider, TerrainProvider, UrlTemplateImageryProvider, Viewer } from "cesium";
     import '../../node_modules/cesium/Build/Cesium/Widgets/widgets.css';
 
     // make sure to define the cesium assets location:
@@ -23,7 +23,12 @@
             navigationInstructionsInitiallyVisible: false,
             scene3DOnly: true,
             shouldAnimate: true,
-            creditContainer: 'cesiumCreditContainer'
+            creditContainer: 'cesiumCreditContainer',
+            imageryProvider: new UrlTemplateImageryProvider( {
+                url: 'http://127.0.0.1:8080/api/tiles/satellite-imagery/{z}/{x}/{reverseY}/data',
+                maximumLevel: 13,
+
+            } )
         } );
 
     } );
