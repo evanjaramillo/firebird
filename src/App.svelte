@@ -1,5 +1,11 @@
 <script lang="ts">
-    import CesiumViewer from "./lib/CesiumViewer.svelte";
+    import Router from 'svelte-spa-router';
+    import HomePage from "./lib/HomePage.svelte";
+
+    const routes = {
+        '/': HomePage
+    };
+
 </script>
 
-<CesiumViewer/>
+<Router {routes}/>

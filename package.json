@@ -9,16 +9,19 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "tauri": "tauri",
-    "lint": "eslint . '*/**/*.{ts,svelte}'",
-    "lint-fix": "eslint . '*/**/*.{ts,svelte}' --fix --quiet",
+    "lint": "eslint . --ext .ts,.svelte",
+    "lint-fix": "eslint . --ext .ts,.svelte --fix --quiet",
     "test": "vitest run",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.4.0",
-    "cesium": "^1.106.1"
+    "cesium": "^1.106.1",
+    "svelte-material-ui": "^7.0.0-beta.14",
+    "svelte-spa-router": "^3.3.0"
   },
   "devDependencies": {
+    "@smui/top-app-bar": "^7.0.0-beta.14",
     "@sveltejs/vite-plugin-svelte": "^2.0.0",
     "@tauri-apps/cli": "^1.4.0",
     "@testing-library/svelte": "^3.2.2",
