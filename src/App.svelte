@@ -1,9 +1,11 @@
 <script lang="ts">
     import Router from 'svelte-spa-router';
-    import HomePage from "./lib/HomePage.svelte";
+    import Scenario3D from "./lib/Scenario3D.svelte";
+    import PlotWindow from "./lib/PlotWindow.svelte";
 
     const routes = {
-        '/': HomePage
+        '/': Scenario3D,
+        '/plots': PlotWindow
     };
 
 </script>

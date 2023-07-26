@@ -1,11 +1,14 @@
 <script lang="ts">
-import Navigation from "./Navigation.svelte";
+    import Navigation from "./Navigation.svelte";
+
+    export let navOpen = false;
+
 </script>
+
 <div class="app-window-area">
-    <Navigation/>
-    <div class="app-window-content">
+    <Navigation open={navOpen}>
         <slot></slot>
-    </div>
+    </Navigation>
 </div>
 
 <style>
@@ -14,12 +17,4 @@ import Navigation from "./Navigation.svelte";
         width: 100%;
         overflow: hidden;
     }
-
-    .app-window-content {
-        height: calc(100vh - 50px);
-        width: 100%;
-        margin-top: 50px;
-        overflow: hidden;
-    }
-
 </style>
